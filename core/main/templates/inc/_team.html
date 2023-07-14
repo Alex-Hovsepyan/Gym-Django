@@ -1,0 +1,19 @@
+<div class="home_trainers">
+    <div class="home_trainer_container">
+        <div class="trainer_header">
+            <div class="title">
+                <span>{{ titles.colored_title3 }}</span>
+                <h2>{{ titles.title3 }}</h2>
+            </div>
+            <a href="{% url 'contact' %}"><button>{{ appointment.btn_name }}</button></a>
+        </div>
+        <div class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                {% for i in team %}
+                    <div style="background: url({{ i.img.url }}) center no-repeat;" class="swiper-slide"></div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>

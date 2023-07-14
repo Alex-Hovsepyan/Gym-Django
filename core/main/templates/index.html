@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}{{ home_gallery.doc_title }}{% endblock title %}
+    {% block body %}
+    <div class="homepage">
+        {% include 'inc/_sidebar.html' %}
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for i in homepage %}
+                    <div class="swiper-slide" style='background-image: url({{ i.background.url }});'>
+                        <div>
+                            <h5>{{ i.subtitle }}</h5>
+                            <h1>{{ i.title1 }} <span>{{ i.colored_title }}</span> {{ i.title2 }}</h1>
+                            <a href="{% url 'about' %}"><button>{{ i.btn_name }}</button></a>
+                        </div>
+                    </div>
+                {% endfor %}   
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div id="overlay"></div>
+    </div>
+    {% include 'inc/_reason.html' %}
+    <div class="offer">
+        <div class="title">
+            <span>{{ titles.colored_title2 }}</span>
+            <h2>{{ titles.title2 }}</h2>
+        </div>
+        <div class="offer_container">
+            {% for i in offer %}
+                <div class="offer_content">
+                    <img src="{{ i.img.url }}" alt="">
+                    <div class="offer_info">
+                        <div class="offer_info_content">
+                            <div>
+                                <span>{{ i.colored_title }}</span>
+                                <h5>{{ i.title }}</h5>
+                            </div>
+                            <a href="{% url 'services' %}"><i class="{{ i.icon }}"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'inc/_appointment.html' %}
+    {% include 'inc/_pricing.html' %}
+    <div class="gallery">
+        <div style="background-image: url({{ home_gallery.img1.url }}); grid-area: gallery1;">
+            <h2>{{ home_gallery.title1 }}</h2>
+        </div>
+        <div style="background-image: url({{ home_gallery.img2.url }}); grid-area: gallery2;">
+            <h2>{{ home_gallery.title2 }}</h2>
+        </div>
+        <div style="background-image: url({{ home_gallery.img3.url }}); grid-area: gallery3;">
+            <h2>{{ home_gallery.title3 }}</h2>
+        </div>
+        <div style="background-image: url({{ home_gallery.img4.url }}); grid-area: gallery4;">
+            <h2>{{ home_gallery.title4 }}</h2>
+        </div>
+        <div style="background-image: url({{ home_gallery.img5.url }}); grid-area: gallery5;">
+            <h2>{{ home_gallery.title5 }}</h2>
+        </div>
+        <div style="background-image: url({{ home_gallery.img6.url }}); grid-area: gallery6;">
+            <h2>{{ home_gallery.title6 }}</h2>
+        </div>
+    </div>
+    {% include 'inc/_team.html' %}
+    {% endblock %}

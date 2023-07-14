@@ -1,0 +1,19 @@
+<div class="sidebar_close">
+    <i style="font-size: 30px;" id="cross" onclick="menuFunc(event)" class="fa-solid fa-xmark"></i>
+    <ul>
+        <li><a href="{% url 'index' %}">{{ header.path1 }}</a></li>
+        <li><a href="{% url 'about' %}">{{ header.path2 }}</a></li>
+        <li><a href="{% url 'services' %}">{{ header.path3 }}</a></li>
+        <li><a href="{% url 'team' %}">{{ header.path4 }}</a></li>
+        <li><a href="{% url 'contact' %}">{{ header.path5 }}</a></li>
+        <li><a href="{% url 'classes' random_class.slug %}">{{ header.sub_path1 }}</a></li>
+        <li><a href="{% url 'bmi' %}">{{ header.sub_path2 }}</a></li>
+        <li><a href="{% url 'gallery' %}">{{ header.sub_path3 }}</a></li>
+    </ul>
+    <div class="social">
+        <a href="{{ header.social_link1 }}"><i class="{{ header.social1 }}"></i></a>
+        <a href="{{ header.social_link2 }}"><i class="{{ header.social2 }}"></i></a>
+        <a href="{{ header.social_link3 }}"><i class="{{ header.social3 }}"></i></a>
+        <a href="{{ header.social_link4 }}"><i class="{{ header.social4 }}"></i></a>
+    </div>
+</div>

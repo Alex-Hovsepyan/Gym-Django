@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}{{ teampage.doc_title }}{% endblock title %}
+    {% block body %}
+    <div style="background-image: url({{ teampage.background.url }});" class="page_title">
+        <h1>{{ teampage.title }}</h1>
+        <p>{{ teampage.path1 }} > <span>{{ teampage.path2 }}</span></p>
+    </div>
+    {% include 'inc/_sidebar.html' %}
+    <div id="overlay"></div>
+    <div class="team">
+        <div class="team_container">
+            <div class="trainer_header">
+                <div class="title">
+                    <span>{{ titles.colored_title3 }}</span>
+                    <h2>{{ titles.title3 }}</h2>
+                </div>
+                <a href="{% url 'contact' %}"><button>{{ appointment.btn_name }}</button></a>
+            </div>
+            <div class="team_content">
+                {% for i in team %}
+                    <div style="background-image: url({{ i.img.url }});" class="trainer">
+                        <div class="trainer_info">
+                            <h3>{{ i.name }}</h3>
+                            <span>{{ i.profession }}</span>
+                            <div class="social">
+                                <a href="{{ i.social_link1 }}"><i class="{{ i.social1 }}"></i></a>
+                                <a href="{{ i.social_link2 }}"><i class="{{ i.social2 }}"></i></a>
+                                <a href="{{ i.social_link3 }}"><i class="{{ i.social3 }}"></i></a>
+                                <a href="{{ i.social_link4 }}"><i class="{{ i.social4 }}"></i></a>
+                                <a href="{{ i.social_link5 }}"><i class="{{ i.social5 }}"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}

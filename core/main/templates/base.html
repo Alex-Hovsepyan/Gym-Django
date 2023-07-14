@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/icon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+<body>
+    <header>
+        <div class='header_container'>   
+            <img width='182px' height='41px' src="{{ header.img.url }}" alt="" />
+            <ul class="list">
+                <li><a href="{% url 'index' %}">{{ header.path1 }}</a></li>
+                <li><a href="{% url 'about' %}">{{ header.path2 }}</a></li>
+                <li><a href="{% url 'services' %}">{{ header.path3 }}</a></li>
+                <li><a href="{% url 'team' %}">{{ header.path4 }}</a></li>
+                <li><a href="{% url 'contact' %}">{{ header.path5 }}</a></li>
+                <li onclick="dropdown()"><a> {{ header.path6 }} <i style="margin-left: 5px;" class="fa-solid fa-arrow-down"></i>
+                    <ul class="dropdown">
+                        <li><a style="" href="{% url 'classes' random_class.slug %}">{{ header.sub_path1 }}</a></li>
+                        <li><a href="{% url 'bmi' %}">{{ header.sub_path2 }}</a></li>
+                        <li><a href="{% url 'gallery' %}">{{ header.sub_path3 }}</a></li>
+                    </ul>
+                </a>
+                </li>
+            </ul>
+            <div class="social">
+                <a href="{{ header.social_link1 }}"><i class="{{ header.social1 }}"></i></a>
+                <a href="{{ header.social_link2 }}"><i class="{{ header.social2 }}"></i></a>
+                <a href="{{ header.social_link3 }}"><i class="{{ header.social3 }}"></i></a>
+                <a href="{{ header.social_link4 }}"><i class="{{ header.social4 }}"></i></a>
+            </div>
+            <i id="burger_menu" style="font-size: 25px; padding: 5px;" onclick="menuFunc(event)" class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    {% block body %}{% endblock body %}
+    <div class="info">
+        <div class="info_container">
+            {% for i in footer_content %}            
+                <div class="info_content">
+                    <span><i class="{{ i.icon }}"></i></span>
+                    <p>{{ i.info }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <div class="footer_container">
+            <div class="footer_content">
+                <img src="{{ header.img.url }}" alt="">
+                <p>{{ footer.text }}</p>
+                <div class="social">
+                    <a href="{{ footer.social_link1 }}"><i class="{{ footer.social1 }}"></i></a>
+                    <a href="{{ footer.social_link2 }}"><i class="{{ footer.social2 }}"></i></a>
+                    <a href="{{ footer.social_link3 }}"><i class="{{ footer.social3 }}"></i></a>
+                    <a href="{{ footer.social_link4 }}"><i class="{{ footer.social4 }}"></i></a>
+                    <a href="{{ footer.social_link5 }}"><i class="{{ footer.social5 }}"></i></a>
+                </div>
+            </div>
+            <div class="footer_content">
+                <h2>{{ footer.title1 }}</h2>
+                <ul>
+                    <li><a href="{% url 'about' %}">{{ footer.subtitle1 }}</a></li>
+                    <li><a href="{% url 'services' %}">{{ footer.subtitle2 }}</a></li>
+                    <li><a href="{% url 'classes' random_class.slug %}">{{ footer.subtitle3 }}</a></li>
+                    <li><a href="{% url 'contact' %}">{{ footer.subtitle4 }}</a></li>
+                </ul>
+            </div>
+            <div class="footer_content">
+                <h2>{{ footer.title2 }}</h2>
+                <ul>
+                    <li><a href="{% url 'contact' %}">{{ footer.subtitle5 }}</a></li>
+                    <li><a href="{% url 'contact' %}">{{ footer.subtitle6 }}</a></li>
+                    <li><a href="">{{ footer.subtitle7 }}</a></li>
+                    <li><a href="">{{ footer.subtitle8 }}</a></li>
+                </ul>
+            </div>
+            <div class="footer_content">
+                <h2>{{ footer.title3 }}</h2>
+                <div>
+                    <p>{{ footer.info1 }}</p>
+                    <p>{{ footer.info2 }}</p>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">{{ footer.copyright_text }}</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

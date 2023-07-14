@@ -1,0 +1,7 @@
+<div style="background-image: url({{ appointment.background.url }});" class="appointment">
+    <div class="appointment_container">
+        <h2>{{ appointment.title }}</h2>
+        <h5>{{ appointment.subtitle }}</h5>
+        <a href="{% url 'contact' %}"><button>{{ appointment.btn_name }}</button></a>
+    </div>
+</div>

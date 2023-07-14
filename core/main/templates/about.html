@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}{{ aboutpage.doc_title }}{% endblock title %}
+    {% block body %}
+        <div style="background-image: url({{ aboutpage.background.url }});" class="page_title">
+            <h1>{{ aboutpage.title }}</h1>
+            <p>{{ aboutpage.path1 }} > <span>{{ aboutpage.path2 }}</span></p>
+        </div>
+        {% include 'inc/_sidebar.html' %}
+        <div id="overlay"></div>
+            {% include 'inc/_reason.html' %}
+        <div class="about">
+            <div style="background-image: url({{ about.img.url }});" class="video">
+                <a href="{{ about.video_link }}"><i class="fa-solid fa-play"></i></a>
+            </div>
+            <div class="about_info">
+                <div class="title">
+                    <span>{{ titles.colored_title4 }}</span>
+                    <h2>{{ titles.title4 }}</h2>
+                </div>
+                <p>{{ about.text }}</p>
+                {% for i in about_fill %}
+                    <div class="fill">
+                        <div>
+                            <h5>{{ i.title }}</h5>
+                            <span>{{ i.percent }}</span>
+                        </div>
+                        <div style="background: linear-gradient(to right, #FFFFFF {{ i.percent }}%, #2D2D2D {{ 100|subtract:i.percent }}%);" class="line"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% include 'inc/_team.html' %}
+        {% include 'inc/_appointment.html' %}
+        <div class="testimonial">
+            <div class="title">
+                <span>{{ titles.colored_title5 }}</span>
+                <h2>{{ titles.title5 }}</h2>
+            </div>
+            <div class="swiper mySwiper3">
+                <div class="swiper-wrapper">
+                    {% for i in testimonial %}
+                        <div class="swiper-slide">
+                            <img src="{{ i.img.url }}" alt="">
+                            <p>{{ i.text }}</p>
+                            <h3>{{ i.name }}</h3>
+                            <span>
+                                {% for j in i.icon.split %}
+                                    <i class="fa-solid fa-star"></i>
+                                {% endfor %}
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    {% endblock %}

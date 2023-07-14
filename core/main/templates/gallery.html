@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{ gallerypage.doc_title }}{% endblock title %}
+    {% block body %}
+        <div style="background-image: url({{ gallerypage.background.url }});" class="page_title">
+            <h1>{{ gallerypage.title }}</h1>
+            <p>{{ gallerypage.path1 }} > {{ gallerypage.path2 }} > <span>{{ gallerypage.path3 }}</span></p>
+        </div>
+    {% include 'inc/_sidebar.html' %}
+    <div id="overlay"></div>
+    <div class="gallery2">
+        <div style="background-image: url({{ gallery.img1.url }}); grid-area: gallery1;">
+            <h2>{{ gallery.title1 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img2.url }}); grid-area: gallery2;">
+            <h2>{{ gallery.title2 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img3.url }}); grid-area: gallery3;">
+            <h2>{{ gallery.title3 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img4.url }}); grid-area: gallery4;">
+            <h2>{{ gallery.title4 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img5.url }}); grid-area: gallery5;">
+            <h2>{{ gallery.title5 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img6.url }}); grid-area: gallery6;">
+            <h2>{{ gallery.title6 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img7.url }}); grid-area: gallery7;">
+            <h2>{{ gallery.title7 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img8.url }}); grid-area: gallery8;">
+            <h2>{{ gallery.title8 }}</h2>
+        </div>
+        <div style="background-image: url({{ gallery.img9.url }}); grid-area: gallery9;">
+            <h2>{{ gallery.title9 }}</h2>
+        </div>
+    </div>
+    {% endblock %}

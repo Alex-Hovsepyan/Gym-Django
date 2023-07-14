@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ servicespage.doc_title }}{% endblock title %}
+    {% block body %}
+    <div style="background-image: url({{ servicespage.background.url }});" class="page_title">
+        <h1>{{ servicespage.title }}</h1>
+        <p>{{ servicespage.path1 }} > <span>{{ servicespage.path2 }}</span></p>
+    </div>
+    {% include 'inc/_sidebar.html' %}
+    <div id="overlay"></div>
+    <div class="services">
+        <div class="title">
+            <span>{{ titles.colored_title6 }}</span>
+            <h2>{{ titles.title6 }}</h2>
+        </div>
+        <div class="services_container">
+            {% for i in services_content %}
+                <div style="{% if i.to_check %}flex-direction: row-reverse;{% endif %}" class="services_content">
+                    <img src="{{ i.img.url }}" alt="">
+                    <div>
+                        <h4>{{ i.title }}</h4>
+                        <p>{{ i.text }}</p>
+                        <a href="{% url 'classes' i.slug %}">{{ i.btn_name }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'inc/_appointment.html' %}
+    {% include 'inc/_pricing.html' %}
+    {% endblock %}

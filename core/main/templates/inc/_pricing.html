@@ -1,0 +1,26 @@
+<div class="pricing">
+    <div class="title">
+        <span>{{ titles.colored_title1 }}</span>
+        <h2>{{ titles.title1 }}</h2>
+    </div>
+    <div class="pricing_container">
+        {% for i in pricing %}
+            <div class="pricing_rotated_content">
+                <div class="pricing_content">
+                        <h2>{{ i.title }}</h2>
+                    <h1>{{ i.price }}</h1>
+                    <span>{{ i.subtitle }}</span>
+                    <ul>
+                        <li>{{ i.offer1 }}</li>
+                        <li>{{ i.offer2 }}</li>
+                        <li>{{ i.offer3 }}</li>
+                        <li>{{ i.offer4 }}</li>
+                        <li>{{ i.offer5 }}</li>
+                        <li>{{ i.offer6 }}</li>
+                    </ul>
+                    <a href="{% url 'contact' %}"><button style="cursor: pointer;">{{ i.btn_name }}</button></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}{{ contactpage.doc_title }}{% endblock title %}
+    {% block body %}
+        <div style="background-image: url({{ contactpage.background.url }});" class="page_title">
+            <h1>{{ contactpage.title }}</h1>
+            <p>{{ contactpage.path1 }} > <span>{{ contactpage.path2 }}</span></p>
+        </div>
+    {% include 'inc/_sidebar.html' %}
+    <div id="overlay"></div>
+    <div class="contact">
+        <div class="contact_container">
+            <div class="contact_content">
+                <div class="contact_left">
+                    <div class="title">
+                        <span>{{ titles.colored_title7 }}</span>
+                        <h2>{{ titles.title7 }}</h2>
+                    </div>
+                    <div class="contact_info">
+                        {% for i in footer_content %}            
+                            <div class="info_content">
+                                <span style="background-color: #363636; color: #F36100;"><i class="{{ i.icon }}"></i></span>
+                                <p>{{ i.info }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="contact_right">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="user_name" id="" placeholder="{{ contact_info.placeholder1 }}">
+                        <input type="text" name="user_email" id="" placeholder="{{ contact_info.placeholder2 }}">
+                        <input type="text" name="user_phone" id="" placeholder="{{ contact_info.placeholder3 }}">
+                        <textarea name="user_message" id="" cols="30" rows="10" placeholder="{{ contact_info.placeholder4 }}"></textarea>
+                        <button>{{ contact_info.placeholder1 }}</button>
+                    </form>
+                </div>
+            </div>
+            <iframe class="google_map" src="{{ contact_info.google_map }}" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    {% endblock %}

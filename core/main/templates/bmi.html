@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}{{ calculatorpage.doc_title }}{% endblock title %}
+    {% block body %}
+        <div style="background-image: url({{ calculatorpage.background.url }});" class="page_title">
+            <h1>{{ calculatorpage.title }}</h1>
+            <p>{{ calculatorpage.path1 }} > {{ calculatorpage.path2 }} > <span>{{ calculatorpage.path3 }}</span></p>
+        </div>
+    {% include 'inc/_sidebar.html' %}
+    <div id="overlay"></div>
+    <div class="bmi">
+        <div class="bmi_container">
+            <div class="bmi_left">
+                <div class="title">
+                    <span>{{ titles.colored_title8 }}</span>
+                    <h2>{{ titles.title8 }}</h2>
+                </div>
+                <table CELLSPACING="0">
+                    <thead>
+                        <tr>
+                            <th>{{ calculator_bmi.title1 }}</th>
+                            <th>{{ calculator_bmi.title2 }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in bmi_status %}                        
+                            <tr>
+                                <td>{{ i.bmi }}</td>
+                                <td>{{ i.status }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="bmi_right">
+                <div class="title">
+                    <span>{{ titles.colored_title9 }}</span>
+                    <h2>{{ titles.title9 }}</h2>
+                </div>
+                <p>{{ calculator_bmi.text }}</p>
+                <div class="calculator">
+                    <input id="weight" type="number" placeholder="{{ calculator_bmi.placeholder1 }}">
+                    <input id="height" type="number" placeholder="{{ calculator_bmi.placeholder2 }}">
+                    <h1 id="user_bmi"></h1>
+                    <button onclick="bmiCalculator()" style="grid-area: button; cursor: pointer;">{{ calculator_bmi.btn_name }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function bmiCalculator() {
+  let weight = document.getElementById('weight').value
+  let height = document.getElementById('height').value
+  let user_bmi = document.getElementById('user_bmi')
+  user_bmi.innerHTML = ((weight / (height*height)) * 10000).toFixed(2)
+}
+    </script>
+    {% endblock %}

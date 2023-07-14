@@ -1,0 +1,15 @@
+<div class="reason">
+    <div class="title">
+        <span>{{ titles.colored_title1 }}</span>
+        <h2>{{ titles.title1 }}</h2>
+    </div>
+    <div class="reason_container">
+        {% for i in reason %}
+            <div class="reason_content">
+                <span><i class="{{ i.icon }}"></i></span>
+                <h3>{{ i.title }}</h3>
+                <p>{{ i.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>

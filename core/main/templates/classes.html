@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}{{ classespage.doc_title }}{% endblock title %}
+    {% block body %}
+    <div style="background-image: url({{ classespage.background.url }});" class="page_title">
+        <h1>{{ classespage.title }}</h1>
+        <p>{{ classespage.path1 }} > <span>{{ classespage.path2 }}</span></p>
+    </div>
+    {% include 'inc/_sidebar.html' %}
+    <div id="overlay"></div>
+    <div class="classes">
+        <div class="classes_container">
+            <div class="classes_left">
+                <h2>{{ fitness_type.title }}</h2>
+                <p>{{ fitness_type.text }}</p>
+                <h2>Trainer</h2>
+                <p>{{ fitness_type.text }}</p>
+                <div class="trainer_class">
+                    <img src="{{ fitness_type.trainer.img.url }}" alt="">
+                    <div class="trainer_class_info">
+                        <div class="class_info">
+                            <div>
+                                <h4>{{ fitness_type.trainer.name }}</h4>
+                                <span>{{ fitness_type.trainer.profession }}</span>
+                            </div>
+                            <div class="social">
+                                <a href="{{ fitness_type.trainer.social_link1 }}"><i class="{{ fitness_type.trainer.social1 }}"></i></a>
+                                <a href="{{ fitness_type.trainer.social_link2 }}"><i class="{{ fitness_type.trainer.social2 }}"></i></a>
+                                <a href="{{ fitness_type.trainer.social_link3 }}"><i class="{{ fitness_type.trainer.social3 }}"></i></a>
+                                <a href="{{ fitness_type.trainer.social_link4 }}"><i class="{{ fitness_type.trainer.social4 }}"></i></a>
+                                <a href="{{ fitness_type.trainer.social_link5 }}"><i class="{{ fitness_type.trainer.social5 }}"></i></a>
+                            </div>
+                        </div>
+                        <p>{{ fitness_type.trainer.text1 }}</p>
+                        <ul>
+                            <li><span>{{ classespage.info1 }}</span> {{ fitness_type.trainer.age }}</li>
+                            <li><span>{{ classespage.info2 }}</span> {{ fitness_type.trainer.weight }}</li>
+                            <li><span>{{ classespage.info3 }}</span> {{ fitness_type.trainer.height }}</li>
+                            <li><span>{{ classespage.info4 }}</span> {{ fitness_type.trainer.occupation }}</li>
+                        </ul>
+                        <p>{{ fitness_type.trainer.text2 }}</p>
+                    </div>
+                </div>                
+            </div>
+            <div class="classes_right">
+                <h2>Categories</h2>
+                <ul>
+                    {% for i in services_content %}
+                        {% if i.title != fitness_type.title %}
+                            <li><a href="{% url 'classes' i.slug %}">{{ i.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}    
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
